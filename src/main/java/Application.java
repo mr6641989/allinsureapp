@@ -259,13 +259,13 @@ public class Application {
     public static void main(String[] args) throws SQLException, UnsupportedEncodingException, NoSuchAlgorithmException {
         BasicConfigurator.configure();
 
-        //initialise database
-        ConnectionSource connectionSource = Database.databaseConn();
-        //dropTables(connectionSource);
-        //createTables(connectionSource);
-        //clearTables(connectionSource);
-        //loadTables(connectionSource);
-        connectionSource.close();
+//        //initialise database
+//        ConnectionSource connectionSource = Database.databaseConn();
+//        dropTables(connectionSource);
+//        createTables(connectionSource);
+//        clearTables(connectionSource);
+//        loadTables(connectionSource);
+//        connectionSource.close();
         Spark.staticFiles.location("/public");
         port(getHerokuAssignedPort());
         get(Routes.INDEX, IndexController.serverIndexPage);
