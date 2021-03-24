@@ -1,17 +1,17 @@
-To run:
-install maven
-from base project dir run: maven install
-cd to target dir
-run java -jar allinsureapp-1.0-jar-with-dependencies.jar
-open http://localhost:4567/ in browser
-for customer
-username: customer1
-pass: customer1
+To run:<br>
+install maven:<br>
+from base project dir run: maven install:<br>
+cd to target dir:<br>
+run java -jar allinsureapp-1.0-jar-with-dependencies.jar:<br>
+open http://localhost:4567/ in browser:<br>
+for customer:<br>
+username: customer1:<br>
+pass: customer1:<br>
 
-for manager
-username: manager1
-pass: manager1
+for manager:<br>
+username: manager1:<br>
+pass: manager1:<br>
 
-for claimsadjuster
-username: claimadjuster1
-pass: claimadjuster1
+for claimsadjuster:<br>
+username: claimadjuster1:<br>
+pass: claimadjuster1:<br>
