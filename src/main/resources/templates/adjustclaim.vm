@@ -1,0 +1,114 @@
+#parse("templates/layout.vm")
+#@mainLayout()
+<div class="form">
+#parse( "templates/claimsadjusterheader.vm" )
+
+    <table border="0" cellspacing="0" cellpadding="0" align="center" class="heading">
+        <tr>
+            <td>Adjust Claim for claim no $claim.getClaimid()</td>
+        </tr>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" align="center">
+        <td align="center"><a href="/view_policy/$claim.getClaimType()/$claim.getCustomer().getCustomerid()" rel="modal:open" class="button">View Policy</a>
+        </td></table>
+<form action="" method="post">
+<table border="0" cellpadding="10" align="center">
+    <tr>
+        <td style="font-weight: bold">Claim Type</td>
+        <td>
+            $claim.getClaimTypeName()
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold">Date Lodged</td>
+        <td>
+            $date.format("dd-MM-yyyy", $claim.getDate())
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold">Last updated</td>
+        <td>
+            $date.format("dd-MM-yyyy", $claim.getLastupdated())
+        </td>
+    </tr>
+
+    <tr>
+        <td style="font-weight: bold">Status</td>
+        <td>
+            <select name="status" id="status">
+                #foreach($status in $statuses)
+                    <option value="$status"  #if( $claim.getStatus() == $status)
+                    selected
+                    #end>$status</option>
+                #end
+            </select>
+        </td>
+    </tr>
+    #if($claim.getAmount() > 0)
+    <tr>
+        <td style="font-weight: bold">Amount</td>
+        <td>
+            $claim.getAmount()
+        </td>
+    </tr>
+    #end
+    <tr>
+        <td style="font-weight: bold">Date of incident</td>
+        <td>
+            $date.format("dd-MM-yyyy", $claim.getDateofincident())
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold">Time of Incident</td>
+        <td>
+            $claim.getTimeofincident()
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold">Description</td>
+        <td>
+            $claim.getDescription()
+        </td>
+    </tr>
+    #if($claim.getClaimTypeName() == "Home Insurance")
+    <tr>
+    <td style="font-weight: bold">Type of Incident</td>
+    <td>
+        $claiminfo.getTypeofincident()
+    </td>
+    </tr>
+    #end
+    #if($claim.getClaimTypeName() == "Car Insurance")
+       <tr>
+    <td style="font-weight: bold">Location</td>
+    <td>
+        $claiminfo.getLocation()
+    </td>
+    </tr>
+    #end
+    #if($claim.getClaimTypeName() == "Accidental Damage Insurance")
+
+    #end
+    <tr>
+        <td style="font-weight: bold">Notes</td>
+        <td>
+            <textarea name="notes" rows="5" cols="30">#if($claim.getNotes())$claim.getNotes()#end</textarea>
+        </td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold" valign="top">Documents</td>
+        <td>
+            #foreach( $supportingdocument in $supportingdocuments )
+            <div class="file">$supportingdocument.getDocumentname()</div> <a href="/download_file/$supportingdocument.getDocumentid()"><img src="u28.svg"></a><br>
+            #end
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input value="adjust claim" type="submit">
+        </td>
+    </tr>
+</table>
+</form>
+</div>
+#end

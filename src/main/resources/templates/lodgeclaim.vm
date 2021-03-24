@@ -1,0 +1,60 @@
+#parse("templates/layout.vm")
+#@mainLayout()
+<div class="lodge_claim">
+#parse( "templates/claimsheader.vm" )
+<table border="0" cellspacing="0" cellpadding="0" align="center" class="heading">
+    <tr>
+        <td>Lodge Claim</td>
+    </tr>
+</table>
+<table align="center">
+    <tbody><tr>
+        #if($hasCarInsurance)
+        <th width="250px">
+            <img src="car.jpg" width="230" height="125" onclick="location.href='/lodge_car_insurance_claim'" class="clickable">
+            <button onclick="location.href='/lodge_car_insurance_claim'">
+                Car Insurance
+            </button>
+        </th>
+        #else
+        <th width="250px">
+            <img src="car.jpg" width="230" height="125" class="disabled">
+            <button disabled>
+                Car Insurance
+            </button>
+        </th>
+        #end
+        #if($hasHomeInsurance)
+        <th width="250px">
+            <img src="home.jpg" width="230" height="125" onclick="location.href='/lodge_home_insurance_claim'" class="clickable">
+            <button onclick="location.href='/lodge_home_insurance_claim'">
+                Home Insurance
+            </button>
+        </th>
+        #else
+        <th width="250px">
+            <img src="home.jpg" width="230" height="125" class="disabled">
+            <button disabled>
+                Home Insurance
+            </button>
+        </th>
+        #end
+        #if($hasAccidentalDamageInsurance)
+        <th width="250px">
+            <img src="accidental.jpg" width="230" height="125" onclick="location.href='/lodge_accidental_damage_claim'" class="clickable">
+            <button onclick="location.href='/lodge_accidental_damage_claim'">
+                Accidental Damage
+            </button>
+        </th>
+        #else
+        <th width="250px">
+            <img src="accidental.jpg" width="230" height="125" class="disabled">
+            <button disabled>
+                Accidental Damage
+            </button>
+        </th>
+        #end
+    </tr>
+    </tbody></table>
+</div>
+#end

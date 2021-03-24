@@ -1,0 +1,33 @@
+#parse("templates/layout.vm")
+#@mainLayout()
+<div class="table">
+#parse( "templates/claimsheader.vm" )
+<table border="0" cellspacing="0" cellpadding="0" align="center" class="heading">
+<tr>
+    <td>View Claims</td>
+</tr>
+</table>
+<table border="1" cellspacing="0" cellpadding="5" align="center">
+    <thead style="font-weight: bold;">
+        <td>Claim Reference No.</td>
+        <td>Claim Type</td>
+        <td>Claim date</td>
+        <td>Status</td>
+        <td>Last updated</td>
+        <td></td>
+    </thead>
+    <tbody>
+    #foreach( $claim in $claims )
+        <tr>
+            <td>$claim.getClaimid()</td>
+            <td>$claim.getClaimTypeName()</td>
+            <td>$date.format("dd-MM-yyyy", $claim.getDate())</td>
+            <td>$claim.getStatus()</td>
+            <td>$date.format("dd-MM-yyyy", $claim.getLastupdated())</td>
+            <td><a href="/view_claim/$claim.getClaimid()">View</a></td>
+        </tr>
+    #end
+    </tbody>
+</table>
+</div>
+#end

@@ -1,0 +1,34 @@
+<h2>Customer Details</h2>
+<table border="0" cellpadding="10" align="center">
+        <tr>
+            <td>First Name</td>
+            <td>$customer.getUser().getFname()</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>$customer.getUser().getLname()</td>
+        </tr>
+    <tr>
+        <td>Address</td>
+        <td>$customer.getAddress()</td>
+    </tr>
+        <tr>
+            <td>Phone Number</td>
+            <td>$customer.getPhone()</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>$customer.getEmail()</td>
+        </tr>
+        <tr>
+            <td>Date Joined</td>
+            <td>$date.format("dd-MM-yyyy", $customer.getDatejoined())</td>
+        </tr>
+        <tr>
+            <td>Date of Birth</td>
+            <td>
+                $date.format("dd-MM-yyyy", $customer.getDateofbirth())
+            </td>
+        </tr>
+    </table>
+</form>

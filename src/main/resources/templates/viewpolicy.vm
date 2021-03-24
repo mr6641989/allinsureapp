@@ -1,0 +1,85 @@
+<h2>Policy Details</h2>
+<table border="0" cellpadding="10" align="center">
+        <tr>
+            <td>Coverage Amount</td>
+            <td>$$insurance.getCoverageamount()</td>
+        </tr>
+        <tr>
+            <td>Premium</td>
+            <td>$$insurance.getPremium()</td>
+        </tr>
+        <tr>
+            <td>Excess</td>
+            <td>$$insurance.getExcess()</td>
+        </tr>
+        <tr>
+            <td>Start Date</td>
+            <td>$date.format("dd-MM-yyyy", $insurance.getStartdate())</td>
+        </tr>
+        <tr>
+            <td>End Date</td>
+            <td>$date.format("dd-MM-yyyy", $insurance.getEnddate())</td>
+        </tr>
+        <tr>
+            <td>Last Claim Date</td>
+            <td>#if($insurance.getLastclaimdate())
+                $date.format("dd-MM-yyyy", $insurance.getLastclaimdate())
+                #end
+            </td>
+        </tr>
+    #if($insurance.getInsurancetype()=="Home")
+    <tr>
+        <td>Home Value</td>
+        <td>$$insurancedetails.getHomevalue()</td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td>$insurancedetails.getAddress()</td>
+    </tr>
+    #end
+    #if($insurance.getInsurancetype()=="Car")
+    <tr>
+        <td>Car Value</td>
+        <td>$$insurancedetails.getCarvalue()</td>
+    </tr>
+    <tr>
+        <td>Make</td>
+        <td>$insurancedetails.getMake()</td>
+    </tr>
+    <tr>
+        <td>Model</td>
+        <td>$insurancedetails.getModel()</td>
+    </tr>
+    <tr>
+        <td>Year</td>
+        <td>$insurancedetails.getYear()</td>
+    </tr>
+    <tr>
+        <td>Registration</td>
+        <td>$insurancedetails.getRegistration()</td>
+    </tr>
+    <tr>
+        <td>Driver age</td>
+        <td>$insurancedetails.getDriverage()</td>
+    </tr>
+    #end
+    #if($insurance.getInsurancetype()=="AccidentalDamage")
+    <tr>
+        <td>Name of item</td>
+        <td>$insurancedetails.getNameofitem()</td>
+    </tr>
+    <tr>
+        <td>Type of item</td>
+        <td>$insurancedetails.getTypeofitem()</td>
+    </tr>
+    <tr>
+        <td>Value of item</td>
+        <td>$$insurancedetails.getValue()</td>
+    </tr>
+    <tr>
+        <td>Serial no</td>
+        <td>$insurancedetails.getSerialno()</td>
+    </tr>
+    #end
+    </table>
+</form>
